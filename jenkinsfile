@@ -1,0 +1,34 @@
+node {
+
+    stage('Git Clone') { 
+     git credentialsId: '5f5fcd5a-1a02-4712-834c-be680d9f7f24', url: 'https://github.com/kodalib4u/Webapp.git'
+    }
+    
+    stage('Java version') { 
+      sh 'java -version'
+    }
+	
+	stage('Maven Version') { 
+      sh 'mvn -version'
+    }
+	
+	stage('Maven validate') { 
+      sh 'mvn validate'
+    }
+	
+	stage('Maven compile') { 
+      sh 'mvn compile'
+    }
+
+                   stage('Maven Test') { 
+      sh 'mvn test'
+    }
+	
+	stage('Maven Package') { 
+      sh 'mvn package'
+    }
+	
+}
+
+
+
